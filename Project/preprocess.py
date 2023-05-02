@@ -177,10 +177,10 @@ class PreprocessingPipeline:
         }
 
 if __name__ == "__main__":
-    FRAME_SIZE = 512
-    HOP_LENGTH = 256
-    DURATION = 0.25  # in seconds
-    SAMPLE_RATE = 22050
+    FRAME_SIZE = 1600
+    HOP_LENGTH = 412
+    DURATION = 0.8  # in seconds
+    SAMPLE_RATE = 16000
     MONO = True
 
     # process training data
