@@ -1,0 +1,106 @@
+Model: "encoder"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ encoder_input (InputLayer)  [(None, 256, 24, 1)]      0         
+                                                                 
+ encoder_conv_layer_1 (Conv2  (None, 256, 24, 32)      320       
+ D)                                                              
+                                                                 
+ encoder_relu_1 (ReLU)       (None, 256, 24, 32)       0         
+                                                                 
+ encoder_bn_1 (BatchNormaliz  (None, 256, 24, 32)      128       
+ ation)                                                          
+                                                                 
+ encoder_conv_layer_2 (Conv2  (None, 128, 12, 64)      18496     
+ D)                                                              
+                                                                 
+ encoder_relu_2 (ReLU)       (None, 128, 12, 64)       0         
+                                                                 
+ encoder_bn_2 (BatchNormaliz  (None, 128, 12, 64)      256       
+ ation)                                                          
+                                                                 
+ encoder_conv_layer_3 (Conv2  (None, 64, 6, 64)        36928     
+ D)                                                              
+                                                                 
+ encoder_relu_3 (ReLU)       (None, 64, 6, 64)         0         
+                                                                 
+ encoder_bn_3 (BatchNormaliz  (None, 64, 6, 64)        256       
+ ation)                                                          
+                                                                 
+ encoder_conv_layer_4 (Conv2  (None, 64, 6, 64)        36928     
+ D)                                                              
+                                                                 
+ encoder_relu_4 (ReLU)       (None, 64, 6, 64)         0         
+                                                                 
+ encoder_bn_4 (BatchNormaliz  (None, 64, 6, 64)        256       
+ ation)                                                          
+                                                                 
+ flatten_1 (Flatten)         (None, 24576)             0         
+                                                                 
+ encoder_output (Dense)      (None, 256)               6291712   
+                                                                 
+=================================================================
+Total params: 6,385,280
+Trainable params: 6,384,832
+Non-trainable params: 448
+_________________________________________________________________
+Model: "decoder"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ decoder_input (InputLayer)  [(None, 256)]             0         
+                                                                 
+ decoder_dense (Dense)       (None, 24576)             6316032   
+                                                                 
+ reshape_1 (Reshape)         (None, 64, 6, 64)         0         
+                                                                 
+ decoder_conv_transpose_laye  (None, 64, 6, 64)        36928     
+ r_1 (Conv2DTranspose)                                           
+                                                                 
+ decoder_relu_1 (ReLU)       (None, 64, 6, 64)         0         
+                                                                 
+ decoder_bn_1 (BatchNormaliz  (None, 64, 6, 64)        256       
+ ation)                                                          
+                                                                 
+ decoder_conv_transpose_laye  (None, 128, 12, 64)      36928     
+ r_2 (Conv2DTranspose)                                           
+                                                                 
+ decoder_relu_2 (ReLU)       (None, 128, 12, 64)       0         
+                                                                 
+ decoder_bn_2 (BatchNormaliz  (None, 128, 12, 64)      256       
+ ation)                                                          
+                                                                 
+ decoder_conv_transpose_laye  (None, 256, 24, 64)      36928     
+ r_3 (Conv2DTranspose)                                           
+                                                                 
+ decoder_relu_3 (ReLU)       (None, 256, 24, 64)       0         
+                                                                 
+ decoder_bn_3 (BatchNormaliz  (None, 256, 24, 64)      256       
+ ation)                                                          
+                                                                 
+ decoder_conv_transpose_laye  (None, 256, 24, 1)       577       
+ r_4 (Conv2DTranspose)                                           
+                                                                 
+ sigmoid_layer (Activation)  (None, 256, 24, 1)        0         
+                                                                 
+=================================================================
+Total params: 6,428,161
+Trainable params: 6,427,777
+Non-trainable params: 384
+_________________________________________________________________
+Model: "autoencoder"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ encoder_input (InputLayer)  [(None, 256, 24, 1)]      0         
+                                                                 
+ encoder (Functional)        (None, 256)               6385280   
+                                                                 
+ decoder (Functional)        (None, 256, 24, 1)        6428161   
+                                                                 
+=================================================================
+Total params: 12,813,441
+Trainable params: 12,812,609
+Non-trainable params: 832
+_________________________________________________________________
