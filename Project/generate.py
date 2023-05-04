@@ -7,7 +7,7 @@ import soundfile as sf
 from autoencoder import Autoencoder
 from soundgenerator import SoundGenerator
 
-HOP_LENGTH = 412
+HOP_LENGTH = 154
 SPECTROGRAMS_PATH = "../Project/spectogram-dataset/Test/"
 SAVE_DIR_ORIGINAL = "audio-samples/original/"
 SAVE_DIR_GENERATED = "audio-samples/generated/"
@@ -71,7 +71,7 @@ if __name__ == "__main__":
     # convert spectrogram samples to audio
     original_signals = sound_generator.convert_spectrograms_to_audio(
         sampled_specs, sampled_min_max_values)
-
+    
     # save audio signals
     save_signals(signals, SAVE_DIR_GENERATED)
     save_signals(original_signals, SAVE_DIR_ORIGINAL)
